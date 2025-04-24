@@ -1,10 +1,8 @@
 import { Client } from "@xhayper/discord-rpc";
 import axios from "axios";
-import { ConnectionVisibility } from "discord-api-types/v10";
-// Removed unused import of ActivityType
 
 // Set this to your  Client ID.
-const clientId = "1364804876088901702";
+const clientId = process.env.CLIENT_ID || "1364804876088901702";
 
 const rpc = new Client({
   clientId: clientId,
