@@ -2,7 +2,7 @@ import { Client } from "@xhayper/discord-rpc";
 import axios from "axios";
 
 // Set this to your  Client ID.
-const clientId = process.env.CLIENT_ID;
+const clientId = "1364804876088901702";
 
 const rpc = new Client({
   clientId: clientId,
