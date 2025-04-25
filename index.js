@@ -10,7 +10,7 @@ const rpc = new Client({
 });
 
 async function getNavidromedata() {
-  const URL = `http://localhost:4536/rest/getNowPlaying?u=${process.env.username}&p=${process.env.navidrome_password}&f=json&v=1.13.0&c=navicord`;
+  const URL = `${process.env.navidrome_url}/rest/getNowPlaying?u=${process.env.navidrome_username}&p=${process.env.navidrome_password}&f=json&v=1.13.0&c=navicord`;
   // console.log(URL);
   const response = await axios.get(URL);
 
