@@ -1,5 +1,6 @@
 import { Client } from "@xhayper/discord-rpc";
 import axios from "axios";
+import "dotenv/config";
 
 // Set this to your  Client ID.
 const clientId = "1364804876088901702";
@@ -9,9 +10,8 @@ const rpc = new Client({
 });
 
 async function getNavidromedata() {
-  const URL =
-    "http://localhost:4536/rest/getNowPlaying?u=april&p=3lYyVj^%25cUf6P%26%23T&f=json&v=1.13.0&c=navicord";
-
+  const URL = `http://localhost:4536/rest/getNowPlaying?u=april&p=${process.env.navidrome_password}&f=json&v=1.13.0&c=navicord`;
+  // console.log(URL);
   const response = await axios.get(URL);
 
   // console.log(response.data["subsonic-response"].nowPlaying);
@@ -78,8 +78,8 @@ rpc.on("ready", async function () {
 
       savedTitle = song.title;
     } else {
-      console.log(listens);
-      console.log("No one is listening");
+      // If no song is playing, clear the activity
+      rpc?.user.clearActivity();
     }
   }, 1e3);
 });
